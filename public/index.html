@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Регистрация</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+	<link type="text/css" rel="stylesheet"  href="style/style.css" />
+	<link rel="icon" href="img/logo.png" type="images/x-icon"/>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+	<div class="row">
+	  <div class="col-xs-1"><a href="#"><img class="image" src="img/VSTU.png" width="64px"></a></div>
+	  <div class="col-xs-9 white text26 enter"><span class="VPOLITEHE1">VPOLITEHE</span><span class="VPOLITEHE2">- удобный мессенджер для общения  студентов и преподователей</span></div>
+	  <div class="col-xs-2 white text24 enter"><a class="white enter" href="logout.html">Войти</a></div>
+	</div>
+    <h2 class="register">Регистрация</h2>
+	<div id="content">
+		<form id="userForms" name="userForm">
+			<input type="hidden" name="id" value="0" />
+			<div class="form-group">
+				<label for="name">Имя:</label>
+				<input class="form-control" name="name" placeholder="Иван" oninput="validateComments(this)"/>
+			</div>
+			<div class="form-group">
+				<label for="surname">Фамилия:</label>
+				<input class="form-control" name="surname" placeholder="Иванов" oninput="validateComments(this)"/>
+			</div>
+			<div class="form-group">
+				<label for="patronymic">Отчество:</label>
+				<input class="form-control" name="patronymic" placeholder="Иванович" oninput="validateComments(this)"/>
+			</div>
+			<div class="form-group">
+				<label for="email">Email:</label>
+				<input class="form-control" name="email" placeholder="test@gmail.com" oninput="validateComments1(this)"/>
+			</div>
+			<div class="form-group">
+				<label for="school">Учебное заведение:</label>
+				<input class="form-control" name="school" placeholder="ВолгГТУ" oninput="validateComments(this)"/>
+			</div>
+			<div class="form-group">
+			  <div class="radio">
+				<label>
+				  <input type="radio" name="teacherstudent" value="Я преподаватель"> Я преподаватель
+				</label>
+			  </div>
+			</div>
+			<div class="form-group">
+			  <div class="radio">
+				<label>
+				  <input type="radio" name="teacherstudent" value="Я студент" checked> Я студент
+				</label>
+			  </div>
+			</div>
+			<div class="form-group">
+				<label for="group">Группа(например: ИВТ-260):</label>
+				<input class="form-control" name="group" placeholder="ИВТ-260"/>
+			</div>
+			<div class="form-group">
+				<label for="password">Пароль(не менее 5 символов):</label>
+				<input type="password" class="form-control" name="password" oninput="validateComments5(this)"/>
+			</div>
+			<div class="panel-body">
+				<button type="submit" class="btn btn-sm btn-primary">Зарегистрироваться</button>
+			</div>
+		</form>
+
+		<div class="continent">
+			<ul>
+        <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur voluptatibus repellat voluptates necessitatibus dolores possimus qui laudantium minus ut earum.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta eaque adipisci iste provident illo, veritatis animi cumque voluptate omnis laboriosam.</p></span><img src="img/3.jpg" alt="Alt"></li>
+        <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde natus tempore, eum architecto debitis deleniti quos eaque vitae assumenda sed.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci ducimus consequuntur et libero fugiat itaque, culpa totam illum quam repudiandae?</p></span><img src="img/3.jpg" alt="Alt"></li>
+        <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, suscipit, doloremque. Ut quis similique doloremque id impedit necessitatibus aliquid illo?Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident laudantium illum, dignissimos cupiditate quibusdam voluptatum nisi ex minus voluptas doloremque!</p></span><img src="img/3.jpg" alt="Alt"></li>
+        <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptate fugiat quae eaque, iusto corporis quibusdam cumque voluptatibus, quos eius.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam nam saepe architecto, reprehenderit itaque debitis incidunt et. In, quaerat, perspiciatis.</p></span><img src="img/3.jpg" alt="Alt"></li>
+      </ul>
+		</div>
+	</div>
+
+	<div class="row">
+	  <div class="col-xs-9 white developers">Команда разработчиков:<br>
+	  <a href="https://vk.com/id141308375" class="linkdevelopers white">Смирнов Владислав</a>
+	  <a href="https://vk.com/honor_nobility_courage" class="linkdevelopers white">Кудряшова Ксения</a>
+	  <a href="https://vk.com/7l0reks" class="linkdevelopers white">Соболев Вадим</a>
+	  <a href="https://vk.com/id133451803" class="linkdevelopers white">Алексеев Илья</a>
+	  <a href="https://vk.com/ann_dolganova" class="linkdevelopers white">Долганова Анна</a>
+	  <a href="https://vk.com/id126576135" class="linkdevelopers white">Истомин Илья</a></div>
+	  <div class="col-xs-3 white footername">VPOLITEHE © 2017. All rights reserve.</div>
+	</div>
+
+	<script src="script/script.js"></script>
+    <script>
+        // Добавление пользователя
+        function CreateUser(userName, userSurname, userPatronymic, userSchool, userGroup, userEmail, userTeacherstudent, userTeacherkey, userPulpit, userPassword) {
+            $.ajax({
+                url: "api/users",
+                contentType: "application/json",
+                method: "POST",
+                data: JSON.stringify({
+                    name: userName,
+          					surname: userSurname,
+                    patronymic: userPatronymic,
+          					school: userSchool,
+          					group: userGroup,
+          					email: userEmail,
+          					teacherstudent: userTeacherstudent,
+          					teacherkey: userTeacherkey,
+          					pulpit: userPulpit,
+                    password: userPassword
+                }),
+                success: function (user) {
+                    reset();
+                    if(!user)
+                      alert("Такой челик уже есть");
+                    else {
+                      document.location.href="main.html";
+                    }
+                    // $("table tbody").append(row(user));
+                }
+            })
+        }
+
+        // сброс формы
+        function reset() {
+            var form = document.forms["userForm"];
+            form.reset();
+            form.elements["id"].value = 0;
+        }
+
+
+
+        // отправка формы
+        $("form").submit(function (e) {
+            e.preventDefault();
+            var id = this.elements["id"].value;
+            var name = this.elements["name"].value;
+      			var surname = this.elements["surname"].value;
+            var patronymic = this.elements["patronymic"].value;
+      			var school = this.elements["school"].value;
+      			var email = this.elements["email"].value;
+            var password = this.elements["password"].value;
+			/*==============КОСТЫЛЬ====================*/
+			var group = "";
+			var teacherkey = "";
+			var pulpit = "";
+			var teacherstudent = "";
+
+			var check = document.getElementsByName('teacherstudent');
+
+			console.log(check);
+			if(check[0].checked){
+				console.log(check[0].value);
+				group = "";
+				teacherkey = this.elements["teacherkey"].value;
+				pulpit = this.elements["pulpit"].value;
+				teacherstudent = check[0].value;
+				console.log(pulpit);
+				console.log(teacherkey);
+				console.log(group);
+			}
+			else if(check[1].checked){
+				console.log(check[1].value);
+				teacherkey = "";
+				pulpit = "";
+				group = this.elements["group"].value;
+				teacherstudent = check[1].value;
+				console.log(pulpit);
+				console.log(teacherkey);
+				console.log(group);
+			}
+
+			if(teacherstudent == "Я преподаватель"){
+				userForms.removeChild(userForms.children[8]);
+				userForms.removeChild(userForms.children[8]);
+
+				var div2 = document.createElement('div');
+				div2.className = "form-group";
+				div2.innerHTML = `<label for="group">Группа(Например: ИВТ-260):</label>
+						<input class="form-control" name="group" placeholder="ИВТ-260"/>`;
+
+				userForms.insertBefore(div2, userForms.children[8]);
+			}
+
+			/*====================КОНЕЦ КОСТЫЛЯ==================*/
+			/*==============ПРОВЕРКА ВВОДА======================*/
+
+			var test = true;
+			var myRe = /([А-Яа-я]+)/i;
+			var nametest = myRe.exec(name);
+			var surnametest = myRe.exec(surname);
+			var patronymictest = myRe.exec(patronymic);
+			var schooltest = myRe.exec(school);
+			if((!nametest || !(nametest.input == nametest[0])) || (!surnametest || !(surnametest.input == surnametest[0])) || (!patronymictest || !(patronymictest.input == patronymictest[0])) || (!schooltest || !(schooltest.input == schooltest[0])))
+				test = false;
+
+			var myRe = /\w+@([a-z]+).[a-z]{2,4}/i;
+			var emailtest = myRe.exec(email);
+			if(!emailtest || !(emailtest.input == emailtest[0]))
+				test = false;
+
+      if(password.length < 5)
+        test = false;
+
+			if(teacherstudent == "Я преподаватель"){
+				var myRe = /id\d+/i;
+				var teacherkeytest = myRe.exec(teacherkey);
+				var myRe1 = /[А-Яа-я]+/i;
+				var pulpittest = myRe1.exec(pulpit);
+				if((!teacherkeytest || !(teacherkeytest.input == teacherkeytest[0])) || (!pulpittest || !(pulpittest.input == pulpittest[0])))
+					test = false;
+			}
+			else{
+				var myRe = /([А-Я]{2,5}-\d{3})/i;
+				var grouptest = myRe.exec(group);
+				if(!grouptest || !(grouptest.input == grouptest[0]))
+					test = false;
+			}
+			/*==================КОНЕЦ ПРОВЕРКИ==================*/
+
+            if (id == 0 && test)
+                CreateUser(name, surname, patronymic, school, group, email, teacherstudent, teacherkey, pulpit, password);
+        });
+
+		/*====================ВЫСКАКИВАЮЩИЕ ПОДСКАЗКИ ПРИ НЕПРАВИЛЬНОМ ВВОДЕ ДАННЫХ=======================*/
+		function validateComments(input) {
+			var myRe = /([А-Яа-я]+)/i;
+			var nametest = myRe.exec(input.value);
+		   if (!nametest || !(nametest.input == nametest[0])) {
+			  input.setCustomValidity("Некорректно введённые данные");
+		   }
+		   else {
+			  // Длина комментария отвечает требованию,
+			  // поэтому очищаем сообщение об ошибке
+			  input.setCustomValidity("");
+		   }
+		}
+
+		function validateComments1(input) {
+			var myRe = /\w+@([a-z]+).[a-z]{2,4}/i;
+			var nametest = myRe.exec(input.value);
+		   if (!nametest || !(nametest.input == nametest[0])) {
+			  input.setCustomValidity("Некорректно введённые данные");
+		   }
+		   else {
+			  // Длина комментария отвечает требованию,
+			  // поэтому очищаем сообщение об ошибке
+			  input.setCustomValidity("");
+		   }
+		}
+
+		function validateComments2(input) {
+			var myRe = /id\d+/i;
+			var nametest = myRe.exec(input.value);
+		   if (!nametest || !(nametest.input == nametest[0])) {
+			  input.setCustomValidity("Некорректно введённые данные");
+		   }
+		   else {
+			  // Длина комментария отвечает требованию,
+			  // поэтому очищаем сообщение об ошибке
+			  input.setCustomValidity("");
+		   }
+		}
+
+		function validateComments3(input) {
+			var myRe = /[А-Яа-я]+/i;
+			var nametest = myRe.exec(input.value);
+		   if (!nametest || !(nametest.input == nametest[0])) {
+			  input.setCustomValidity("Некорректно введённые данные");
+		   }
+		   else {
+			  // Длина комментария отвечает требованию,
+			  // поэтому очищаем сообщение об ошибке
+			  input.setCustomValidity("");
+		   }
+		}
+
+		function validateComments4(input) {
+			var myRe = /([А-Я]{2,5}-\d{3})/i;
+			var nametest = myRe.exec(input.value);
+		   if (!nametest || !(nametest.input == nametest[0])) {
+			  input.setCustomValidity("Некорректно введённые данные");
+		   }
+		   else {
+			  // Длина комментария отвечает требованию,
+			  // поэтому очищаем сообщение об ошибке
+			  input.setCustomValidity("");
+		   }
+		}
+
+    function validateComments5(input) {
+		   if (input.value.length < 5) {
+			  input.setCustomValidity("Некорректно введённые данные");
+		   }
+		   else {
+			  // Длина комментария отвечает требованию,
+			  // поэтому очищаем сообщение об ошибке
+			  input.setCustomValidity("");
+		   }
+		}
+		/*===================================================================*/
+
+    </script>
+
+</body>
+</html>

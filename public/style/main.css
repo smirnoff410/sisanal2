@@ -1,0 +1,64 @@
+.col-xs-3 a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.text15{
+  font-size: 15px;
+}
+
+.enter{
+	margin-top: 10px;
+}
+
+.content{
+  display: flex;
+  flex-direction: row;
+}
+
+.chat{
+  width: 70%;
+  height: 550px;
+  background: #3d3d3d;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.left_side{
+  width: 15%;
+}
+
+.right_side{
+  width: 15%;
+}
+
+.menu a{
+  background: #3d3d3d;
+  color: #fff;
+  padding: 10px;
+  display: block;
+  border-bottom: 1px solid #666;
+}
+
+.menu a:hover{
+  text-decoration: none;
+  background: #666;
+}
+
+.named a{
+  background: #79a78a;
+  color: #fff;
+  padding: 5px;
+  display: block;
+  border-bottom: 1px solid #666;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Вход</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+	<link type="text/css" rel="stylesheet"  href="style/style.css" />
+	<link rel="icon" href="img/logo.png" type="images/x-icon"/>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+	<div class="row">
+	  <div class="col-xs-1"><a href="#"><img class="image" src="img/VSTU.png" width="64px"></a></div>
+	  <div class="col-xs-9 white text26 enter"><span class="VPOLITEHE1">VPOLITEHE</span><span class="VPOLITEHE2">- удобный мессенджер для общения  студентов и преподователей</span></div>
+	  <div class="col-xs-2 white text24 enter"><a id="a1" class="white enter" href="index.html">Регистрация</a></div>
+	</div>
+  <h2 class="register">Вход</h2>
+<div id="content">
+  <form id="userForms" name="userForm">
+    <input type="hidden" name="id" value="0" />
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input class="form-control" name="email" placeholder="test@gmail.com" oninput="validateComments1(this)"/>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Пароль:</label>
+      <input type="password" class="form-control" name="password" oninput="validateComments5(this)"/>
+    </div>
+    <div class="panel-body">
+      <button type="submit" class="btn btn-sm btn-primary">Войти</button>
+    </div>
+  </form>
+
+  <div class="continent">
+    <ul>
+      <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur voluptatibus repellat voluptates necessitatibus dolores possimus qui laudantium minus ut earum.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta eaque adipisci iste provident illo, veritatis animi cumque voluptate omnis laboriosam.</p></span><img src="img/3.jpg" alt="Alt"></li>
+      <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde natus tempore, eum architecto debitis deleniti quos eaque vitae assumenda sed.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci ducimus consequuntur et libero fugiat itaque, culpa totam illum quam repudiandae?</p></span><img src="img/3.jpg" alt="Alt"></li>
+      <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, suscipit, doloremque. Ut quis similique doloremque id impedit necessitatibus aliquid illo?Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident laudantium illum, dignissimos cupiditate quibusdam voluptatum nisi ex minus voluptas doloremque!</p></span><img src="img/3.jpg" alt="Alt"></li>
+      <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptate fugiat quae eaque, iusto corporis quibusdam cumque voluptatibus, quos eius.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam nam saepe architecto, reprehenderit itaque debitis incidunt et. In, quaerat, perspiciatis.</p></span><img src="img/3.jpg" alt="Alt"></li>
+    </ul>
+  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-xs-9 white developers">Команда разработчиков:<br>
+	  <a href="https://vk.com/id141308375" class="linkdevelopers white">Смирнов Владислав</a>
+	  <a href="https://vk.com/honor_nobility_courage" class="linkdevelopers white">Кудряшова Ксения</a>
+	  <a href="https://vk.com/7l0reks" class="linkdevelopers white">Соболев Вадим</a>
+	  <a href="https://vk.com/id133451803" class="linkdevelopers white">Алексеев Илья</a>
+	  <a href="https://vk.com/ann_dolganova" class="linkdevelopers white">Долганова Анна</a>
+	  <a href="https://vk.com/id126576135" class="linkdevelopers white">Истомин Илья</a></div>
+	  <div class="col-xs-3 white footername">VPOLITEHE © 2017. All rights reserve.</div>
+	</div>
+
+  <script src="script/script.js"></script>
+  <script>
+
+    $("form").submit(function(e){
+      e.preventDefault();
+      var email = this.elements["email"].value;
+      var password = this.elements["password"].value;
+      console.log(email);
+      console.log(password);
+
+      $.ajax({
+          url: "api/userss",
+          contentType: "application/json",
+          method: "POST",
+          data: JSON.stringify({
+              email: email,
+              password: password
+          }),
+          success: function (user) {
+              reset();
+              if(user.length!=0)
+                document.location.href="main.html";
+              else
+                alert("Пользователь с такими данными не зарегистрирован");
+
+          }
+        });
+    });
+
+    function reset() {
+        var form = document.forms["userForm"];
+        form.reset();
+        form.elements["id"].value = 0;
+    }
+
+    function validateComments1(input) {
+			var myRe = /\w+@([a-z]+).[a-z]{2,4}/i;
+			var nametest = myRe.exec(input.value);
+		   if (!nametest || !(nametest.input == nametest[0])) {
+			  input.setCustomValidity("Некорректно введённые данные");
+		   }
+		   else {
+			  // Длина комментария отвечает требованию,
+			  // поэтому очищаем сообщение об ошибке
+			  input.setCustomValidity("");
+		   }
+		}
+
+    function validateComments5(input) {
+		   if (input.value.length < 5) {
+			  input.setCustomValidity("Некорректно введённые данные");
+		   }
+		   else {
+			  // Длина комментария отвечает требованию,
+			  // поэтому очищаем сообщение об ошибке
+			  input.setCustomValidity("");
+		   }
+		}
+  </script>
+</body>
+</html>

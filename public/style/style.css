@@ -1,0 +1,139 @@
+.row{
+	background: #79a78a;
+	margin-left: 0;
+	margin-right: 0;
+	width: 100%;
+}
+
+.image{
+	margin-left: 15px;
+	margin-top: 5px;
+}
+
+.white{
+	color: #fff;
+}
+
+.text24{
+	font-size: 24px;
+}
+
+.text26{
+	font-size: 26px;
+}
+
+.enter{
+	margin-top: 20px;
+}
+
+.enter:hover{
+	text-decoration: none;
+	color: #fff;
+}
+
+#userForms, .register{
+	margin-left: 30px;
+}
+
+.form-group{
+	width: 280px;
+}
+
+#content{
+	display: flex;
+	flex-direction: colomn;
+}
+
+.continent{
+	background: #fff;
+	width: 100%;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 15px;
+}
+
+.continent ul,
+.continent li{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+
+}
+
+.continent li{
+	display: inline-block;
+	width: 400px;
+	margin: 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.continent img{
+	max-width: 100%;
+	display: block;
+}
+
+.descr{
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	color: #fff;
+	padding-top: 20px;
+	text-align: center;
+	opacity: 0;
+	transition: all .5s;
+}
+
+.continent li:hover .descr{
+	opacity: 1;
+	top: 0;
+}
+
+
+
+.developers{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.linkdevelopers{
+	text-decoration: none;
+}
+
+.linkdevelopers:hover{
+	text-decoration: none;
+	color: #000;
+}
+
+.footername{
+	margin-top: 30px;
+}
+
+
+@media screen and (max-width: 1000px){
+	.image{
+		margin-top: 19px;
+		margin-left: 0;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.VPOLITEHE2{
+		display: none;
+	}
+	.VPOLITEHE1{
+		margin-left: 80px;
+	}
+	.image{
+		margin-top: 5px;
+	}
+}
+
+@media screen and (max-width: 700px){
+	.continent{
+		display: none;
+	}
+}
