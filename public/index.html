@@ -19,25 +19,25 @@
 	<div id="content">
 		<form id="userForms" name="userForm">
 			<input type="hidden" name="id" value="0" />
-			<div class="form-group">
+			<div class="form-group class1">
 				<label for="name">Имя:</label>
-				<input class="form-control" name="name" placeholder="Иван" oninput="validateComments(this)"/>
+				<input class="form-control" name="name" placeholder="Иван"/>
 			</div>
-			<div class="form-group">
+			<div class="form-group class2">
 				<label for="surname">Фамилия:</label>
-				<input class="form-control" name="surname" placeholder="Иванов" oninput="validateComments(this)"/>
+				<input class="form-control" name="surname" placeholder="Иванов"/>
 			</div>
-			<div class="form-group">
+			<div class="form-group class3">
 				<label for="patronymic">Отчество:</label>
-				<input class="form-control" name="patronymic" placeholder="Иванович" oninput="validateComments(this)"/>
+				<input class="form-control" name="patronymic" placeholder="Иванович"/>
 			</div>
-			<div class="form-group">
+			<div class="form-group class4">
 				<label for="email">Email:</label>
-				<input class="form-control" name="email" placeholder="test@gmail.com" oninput="validateComments1(this)"/>
+				<input class="form-control" name="email" placeholder="test@gmail.com"/>
 			</div>
-			<div class="form-group">
+			<div class="form-group class5">
 				<label for="school">Учебное заведение:</label>
-				<input class="form-control" name="school" placeholder="ВолгГТУ" oninput="validateComments(this)"/>
+				<input class="form-control" name="school" placeholder="ВолгГТУ"/>
 			</div>
 			<div class="form-group">
 			  <div class="radio">
@@ -53,13 +53,17 @@
 				</label>
 			  </div>
 			</div>
-			<div class="form-group">
+			<div class="form-group class6">
 				<label for="group">Группа(например: ИВТ-260):</label>
 				<input class="form-control" name="group" placeholder="ИВТ-260"/>
 			</div>
-			<div class="form-group">
+			<div class="form-group class9">
 				<label for="password">Пароль(не менее 5 символов):</label>
-				<input type="password" class="form-control" name="password" oninput="validateComments5(this)"/>
+				<input type="password" class="form-control" name="password"/>
+			</div>
+      <div class="form-group class10">
+				<label for="password">Повторите пароль:</label>
+				<input type="password" class="form-control" name="password1"/>
 			</div>
 			<div class="panel-body">
 				<button type="submit" class="btn btn-sm btn-primary">Зарегистрироваться</button>
@@ -138,6 +142,7 @@
       			var school = this.elements["school"].value;
       			var email = this.elements["email"].value;
             var password = this.elements["password"].value;
+            var password1 = this.elements["password1"].value;
 			/*==============КОСТЫЛЬ====================*/
 			var group = "";
 			var teacherkey = "";
@@ -189,114 +194,89 @@
 			var surnametest = myRe.exec(surname);
 			var patronymictest = myRe.exec(patronymic);
 			var schooltest = myRe.exec(school);
-			if((!nametest || !(nametest.input == nametest[0])) || (!surnametest || !(surnametest.input == surnametest[0])) || (!patronymictest || !(patronymictest.input == patronymictest[0])) || (!schooltest || !(schooltest.input == schooltest[0])))
+			if(!nametest || !(nametest.input == nametest[0])){
 				test = false;
+        $("div.class1").addClass("has-error");
+      } else {
+        $("div.class1").addClass("has-success");
+      }
+      if(!surnametest || !(surnametest.input == surnametest[0])){
+        test = false;
+        $("div.class2").addClass("has-error");
+      } else {
+        $("div.class2").addClass("has-success");
+      }
+      if(!patronymictest || !(patronymictest.input == patronymictest[0])){
+        test = false;
+        $("div.class3").addClass("has-error");
+      } else {
+        $("div.class3").addClass("has-success");
+      }
+      if(!schooltest || !(schooltest.input == schooltest[0])){
+        test = false;
+        $("div.class5").addClass("has-error");
+      } else {
+        $("div.class5").addClass("has-success");
+      }
 
 			var myRe = /\w+@([a-z]+).[a-z]{2,4}/i;
 			var emailtest = myRe.exec(email);
-			if(!emailtest || !(emailtest.input == emailtest[0]))
-				test = false;
-
-      if(password.length < 5)
+			if(!emailtest || !(emailtest.input == emailtest[0])){
         test = false;
+        $("div.class4").addClass("has-error");
+      } else {
+        $("div.class4").addClass("has-success");
+      }
+
+      if(password.length < 5){
+        test = false;
+        $("div.class9").addClass("has-error");
+      } else {
+        $("div.class9").addClass("has-success");
+      }
 
 			if(teacherstudent == "Я преподаватель"){
 				var myRe = /id\d+/i;
 				var teacherkeytest = myRe.exec(teacherkey);
 				var myRe1 = /[А-Яа-я]+/i;
 				var pulpittest = myRe1.exec(pulpit);
-				if((!teacherkeytest || !(teacherkeytest.input == teacherkeytest[0])) || (!pulpittest || !(pulpittest.input == pulpittest[0])))
-					test = false;
+				if(!teacherkeytest || !(teacherkeytest.input == teacherkeytest[0])){
+          test = false;
+          $("div.class7").addClass("has-error");
+        } else {
+          $("div.class7").addClass("has-success");
+        }
+        if(!pulpittest || !(pulpittest.input == pulpittest[0])){
+          test = false;
+          $("div.class8").addClass("has-error");
+        } else {
+          $("div.class8").addClass("has-success");
+        }
 			}
 			else{
 				var myRe = /([А-Я]{2,5}-\d{3})/i;
 				var grouptest = myRe.exec(group);
-				if(!grouptest || !(grouptest.input == grouptest[0]))
-					test = false;
+				if(!grouptest || !(grouptest.input == grouptest[0])){
+          test = false;
+          $("div.class6").addClass("has-error");
+        } else {
+          $("div.class6").addClass("has-success");
+        }
+
 			}
+      if(password !== password1){
+        test = false;
+        $("div.class10").addClass("has-error");
+      } else {
+        $("div.class10").addClass("has-success");
+      }
+
 			/*==================КОНЕЦ ПРОВЕРКИ==================*/
 
-            if (id == 0 && test)
-                CreateUser(name, surname, patronymic, school, group, email, teacherstudent, teacherkey, pulpit, password);
+          if (id == 0 && test)
+              CreateUser(name, surname, patronymic, school, group, email, teacherstudent, teacherkey, pulpit, password);
         });
 
-		/*====================ВЫСКАКИВАЮЩИЕ ПОДСКАЗКИ ПРИ НЕПРАВИЛЬНОМ ВВОДЕ ДАННЫХ=======================*/
-		function validateComments(input) {
-			var myRe = /([А-Яа-я]+)/i;
-			var nametest = myRe.exec(input.value);
-		   if (!nametest || !(nametest.input == nametest[0])) {
-			  input.setCustomValidity("Некорректно введённые данные");
-		   }
-		   else {
-			  // Длина комментария отвечает требованию,
-			  // поэтому очищаем сообщение об ошибке
-			  input.setCustomValidity("");
-		   }
-		}
-
-		function validateComments1(input) {
-			var myRe = /\w+@([a-z]+).[a-z]{2,4}/i;
-			var nametest = myRe.exec(input.value);
-		   if (!nametest || !(nametest.input == nametest[0])) {
-			  input.setCustomValidity("Некорректно введённые данные");
-		   }
-		   else {
-			  // Длина комментария отвечает требованию,
-			  // поэтому очищаем сообщение об ошибке
-			  input.setCustomValidity("");
-		   }
-		}
-
-		function validateComments2(input) {
-			var myRe = /id\d+/i;
-			var nametest = myRe.exec(input.value);
-		   if (!nametest || !(nametest.input == nametest[0])) {
-			  input.setCustomValidity("Некорректно введённые данные");
-		   }
-		   else {
-			  // Длина комментария отвечает требованию,
-			  // поэтому очищаем сообщение об ошибке
-			  input.setCustomValidity("");
-		   }
-		}
-
-		function validateComments3(input) {
-			var myRe = /[А-Яа-я]+/i;
-			var nametest = myRe.exec(input.value);
-		   if (!nametest || !(nametest.input == nametest[0])) {
-			  input.setCustomValidity("Некорректно введённые данные");
-		   }
-		   else {
-			  // Длина комментария отвечает требованию,
-			  // поэтому очищаем сообщение об ошибке
-			  input.setCustomValidity("");
-		   }
-		}
-
-		function validateComments4(input) {
-			var myRe = /([А-Я]{2,5}-\d{3})/i;
-			var nametest = myRe.exec(input.value);
-		   if (!nametest || !(nametest.input == nametest[0])) {
-			  input.setCustomValidity("Некорректно введённые данные");
-		   }
-		   else {
-			  // Длина комментария отвечает требованию,
-			  // поэтому очищаем сообщение об ошибке
-			  input.setCustomValidity("");
-		   }
-		}
-
-    function validateComments5(input) {
-		   if (input.value.length < 5) {
-			  input.setCustomValidity("Некорректно введённые данные");
-		   }
-		   else {
-			  // Длина комментария отвечает требованию,
-			  // поэтому очищаем сообщение об ошибке
-			  input.setCustomValidity("");
-		   }
-		}
-		/*===================================================================*/
 
     </script>
 
