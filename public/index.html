@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width" />
     <title>Регистрация</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-	<link type="text/css" rel="stylesheet"  href="style/style.css" />
-	<link rel="icon" href="img/logo.png" type="images/x-icon"/>
+	<link type="text/css" rel="stylesheet"  href="public/style/style.css" />
+	<link rel="icon" href="public/img/logo.png" type="images/x-icon"/>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 <body>
 	<div class="row">
-	  <div class="col-xs-1"><a href="#"><img class="image" src="img/VSTU.png" width="64px"></a></div>
+	  <div class="col-xs-1"><a href="#"><img class="image" src="public/img/VSTU.png" width="64px"></a></div>
 	  <div class="col-xs-9 white text26 enter"><span class="VPOLITEHE1">VPOLITEHE</span><span class="VPOLITEHE2">- удобный мессенджер для общения  студентов и преподователей</span></div>
-	  <div class="col-xs-2 white text24 enter"><a class="white enter" href="logout.html">Войти</a></div>
+	  <div class="col-xs-2 white text24 enter"><a class="white enter" href="login">Войти</a></div>
 	</div>
     <h2 class="register">Регистрация</h2>
 	<div id="content">
@@ -72,10 +72,10 @@
 
 		<div class="continent">
 			<ul>
-        <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur voluptatibus repellat voluptates necessitatibus dolores possimus qui laudantium minus ut earum.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta eaque adipisci iste provident illo, veritatis animi cumque voluptate omnis laboriosam.</p></span><img src="img/3.jpg" alt="Alt"></li>
-        <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde natus tempore, eum architecto debitis deleniti quos eaque vitae assumenda sed.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci ducimus consequuntur et libero fugiat itaque, culpa totam illum quam repudiandae?</p></span><img src="img/3.jpg" alt="Alt"></li>
-        <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, suscipit, doloremque. Ut quis similique doloremque id impedit necessitatibus aliquid illo?Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident laudantium illum, dignissimos cupiditate quibusdam voluptatum nisi ex minus voluptas doloremque!</p></span><img src="img/3.jpg" alt="Alt"></li>
-        <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptate fugiat quae eaque, iusto corporis quibusdam cumque voluptatibus, quos eius.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam nam saepe architecto, reprehenderit itaque debitis incidunt et. In, quaerat, perspiciatis.</p></span><img src="img/3.jpg" alt="Alt"></li>
+        <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur voluptatibus repellat voluptates necessitatibus dolores possimus qui laudantium minus ut earum.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta eaque adipisci iste provident illo, veritatis animi cumque voluptate omnis laboriosam.</p></span><img src="public/img/3.jpg" alt="Alt"></li>
+        <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde natus tempore, eum architecto debitis deleniti quos eaque vitae assumenda sed.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci ducimus consequuntur et libero fugiat itaque, culpa totam illum quam repudiandae?</p></span><img src="public/img/3.jpg" alt="Alt"></li>
+        <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, suscipit, doloremque. Ut quis similique doloremque id impedit necessitatibus aliquid illo?Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident laudantium illum, dignissimos cupiditate quibusdam voluptatum nisi ex minus voluptas doloremque!</p></span><img src="public/img/3.jpg" alt="Alt"></li>
+        <li><span class="descr">Описание<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptate fugiat quae eaque, iusto corporis quibusdam cumque voluptatibus, quos eius.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam nam saepe architecto, reprehenderit itaque debitis incidunt et. In, quaerat, perspiciatis.</p></span><img src="public/img/3.jpg" alt="Alt"></li>
       </ul>
 		</div>
 	</div>
@@ -91,7 +91,7 @@
 	  <div class="col-xs-3 white footername">VPOLITEHE © 2017. All rights reserve.</div>
 	</div>
 
-	<script src="script/script.js"></script>
+	<script src="public/script/script.js"></script>
     <script>
         // Добавление пользователя
         function CreateUser(userName, userSurname, userPatronymic, userSchool, userGroup, userEmail, userTeacherstudent, userTeacherkey, userPulpit, userPassword) {
@@ -116,7 +116,7 @@
                     if(!user)
                       alert("Такой челик уже есть");
                     else {
-                      document.location.href="main.html";
+                      document.location.href="/main";
                     }
                     // $("table tbody").append(row(user));
                 }

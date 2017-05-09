@@ -1,3 +1,35 @@
+.list {
+}
+
+.list.ng-enter {
+  opacity: 0;
+  transition: .1s linear all;
+}
+
+.list.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.list.ng-leave {
+  opacity: 1;
+  transition: .1s linear all;
+}
+
+.list.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+.list.ng-enter-stagger,
+.list.ng-leave-stagger {
+  /* Задержка анимации */
+  -webkit-transition-delay: .1s;
+  transition-delay: .1s;
+ 
+  /* Эта часть нужна, чтобы анимация проходила без проблем */
+  -webkit-transition-duration:0;
+  transition-duration:0;
+}
+
 .col-xs-3 a{
   text-decoration: none;
   color: #fff;

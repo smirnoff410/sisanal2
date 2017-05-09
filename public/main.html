@@ -5,28 +5,29 @@
       <meta name="viewport" content="width=device-width" />
       <title>Главная</title>
       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-  	  <link type="text/css" rel="stylesheet"  href="style/style.css" />
-      <link type="text/css" rel="stylesheet"  href="style/main.css" />
-  	  <link rel="icon" href="img/logo.png" type="images/x-icon"/>
+  	  <link type="text/css" rel="stylesheet"  href="public/style/style.css" />
+      <link type="text/css" rel="stylesheet"  href="public/style/main.css" />
+  	  <link rel="icon" href="public/img/logo.png" type="images/x-icon"/>
       <script src="bower_components/angular/angular.min.js"></script>
-      <script src="angular/vpolitehe-module.js"></script>
+      <script src="public/script/vpolitehe-module.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.js"></script>
   </head>
   <body ng-controller="mainController">
   	<div class="row">
-  	  <div class="col-xs-1"><a href="#"><img class="image" src="img/VSTU.png" width="32px"></a></div>
+  	  <div class="col-xs-1"><a href="#"><img class="image" src="public/img/VSTU.png" width="32px"></a></div>
   	  <div class="col-xs-3 white text15 enter"><span class="VPOLITEHE1">VPOLITEHE</span></div>
       <div class="col-xs-3 white text15 enter"><a href="#">Моя группа</a></div>
       <div class="col-xs-3 white text15 enter"><a href="#">Мои новости</a></div>
-  	  <div class="col-xs-2 white text15 enter"><a class="white enter" href="logout.html">Выйти</a></div>
+  	  <div class="col-xs-2 white text15 enter"><a class="white enter" href="/login">Выйти</a></div>
   	</div>
 
     <div class="content">
       <div class="left_side"><span></span>
         <ul class="menu">
-          <li class="menu__list" ng-repeat="group in $ctrl.allGroups">
-            <a class="name_group" ng-click="$ctrl.showGroup(this)">{{group.title}}</a>
-            <ul class="named">
-              <li ng-repeat="student in group.students"><a href="{{student.link}}">{{student.lastName}} {{student.firstName}}</a></li>
+          <li class="menu__list" ng-repeat="user in allGroups">
+            <a class="name_group" ng-click="showGroup(this)">{{user.title}}</a>
+            <ul id="students" class="named">
+              <li class="list" ng-repeat="student in user.students" ng-if="user.show"><a href="{{student.link}}">{{student.lastName}} {{student.firstName}}</a></li>
             </ul>
           </li>
         </ul>
@@ -34,14 +35,16 @@
       <div class="chat"></div>
       <div class="right_side">
         <ul class="menu">
-          <li class="menu__list" ng-repeat="chair in $ctrl.allChairs">
-            <a class="name_group" ng-click="$ctrl.showGroup(this)">{{chair.title}}</a>
+          <li class="menu__list" ng-repeat="user in allChairs">
+            <a class="name_group" ng-click="showChair(this)">{{user.title}}</a>
             <ul class="named">
-              <li ng-repeat="teacher in chair.allTeachers"><a href="{{teacher.link}}">{{teacher.FIO}}</a></li>
+              <li class="list" ng-repeat="teacher in user.allTeachers" ng-if="user.show"><a href="{{teacher.link}}">{{teacher.FIO}}</a></li>
             </ul>
           </li>
         </ul>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="public/script/main.js"></script>
   </body>
 </html>
