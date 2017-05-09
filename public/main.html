@@ -1,111 +1,47 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Главная</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-	  <link type="text/css" rel="stylesheet"  href="style/style.css" />
-    <link type="text/css" rel="stylesheet"  href="style/main.css" />
-	  <link rel="icon" href="img/logo.png" type="images/x-icon"/>
+<html ng-app="vpoliteve">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width" />
+      <title>Главная</title>
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+  	  <link type="text/css" rel="stylesheet"  href="style/style.css" />
+      <link type="text/css" rel="stylesheet"  href="style/main.css" />
+  	  <link rel="icon" href="img/logo.png" type="images/x-icon"/>
+      <script src="bower_components/angular/angular.min.js"></script>
+      <script src="angular/vpolitehe-module.js"></script>
+  </head>
+  <body ng-controller="mainController">
+  	<div class="row">
+  	  <div class="col-xs-1"><a href="#"><img class="image" src="img/VSTU.png" width="32px"></a></div>
+  	  <div class="col-xs-3 white text15 enter"><span class="VPOLITEHE1">VPOLITEHE</span></div>
+      <div class="col-xs-3 white text15 enter"><a href="#">Моя группа</a></div>
+      <div class="col-xs-3 white text15 enter"><a href="#">Мои новости</a></div>
+  	  <div class="col-xs-2 white text15 enter"><a class="white enter" href="logout.html">Выйти</a></div>
+  	</div>
 
-</head>
-<body>
-	<div class="row">
-	  <div class="col-xs-1"><a href="#"><img class="image" src="img/VSTU.png" width="32px"></a></div>
-	  <div class="col-xs-3 white text15 enter"><span class="VPOLITEHE1">VPOLITEHE</span></div>
-    <div class="col-xs-3 white text15 enter"><a href="#">Моя группа</a></div>
-    <div class="col-xs-3 white text15 enter"><a href="#">Мои новости</a></div>
-	  <div class="col-xs-2 white text15 enter"><a class="white enter" href="logout.html">Выйти</a></div>
-	</div>
-
-  <div class="content">
-    <div class="left_side"><span></span>
-      <ul class="menu">
-        <li class="menu__list">
-          <a class="name_group" href="#">ИВТ-260</a>
-          <ul class="named">
-            <li><a href="#">Кудряшова Ксения</a></li>
-            <li><a href="#">Истомин Илья</a></li>
-            <li><a href="#">Смирнов Владислав</a></li>
-            <li><a href="#">Долганова Анна</a></li>
-            <li><a href="#">Соболев Вадим</a></li>
-            <li><a href="#">Алексеев Илья</a></li>
-          </ul>
-        </li>
-        <li class="menu__list">
-          <a class="name_group" href="#">ИВТ-261</a>
-          <ul class="named">
-            <li><a href="#">Кудряшова Ксения</a></li>
-            <li><a href="#">Истомин Илья</a></li>
-            <li><a href="#">Смирнов Владислав</a></li>
-            <li><a href="#">Долганова Анна</a></li>
-            <li><a href="#">Соболев Вадим</a></li>
-            <li><a href="#">Алексеев Илья</a></li>
-          </ul>
-        </li>
-        <li class="menu__list">
-          <a class="name_group" href="#">ИВТ-262</a>
-          <ul class="named">
-            <li><a href="#">Кудряшова Ксения</a></li>
-            <li><a href="#">Истомин Илья</a></li>
-            <li><a href="#">Смирнов Владислав</a></li>
-            <li><a href="#">Долганова Анна</a></li>
-            <li><a href="#">Соболев Вадим</a></li>
-            <li><a href="#">Алексеев Илья</a></li>
-          </ul>
-        </li>
-        <li class="menu__list">
-          <a class="name_group" href="#">ИВТ-263</a>
-          <ul class="named">
-            <li><a href="#">Кудряшова Ксения</a></li>
-            <li><a href="#">Истомин Илья</a></li>
-            <li><a href="#">Смирнов Владислав</a></li>
-            <li><a href="#">Долганова Анна</a></li>
-            <li><a href="#">Соболев Вадим</a></li>
-            <li><a href="#">Алексеев Илья</a></li>
-          </ul>
-        </li>
-      </ul>
+    <div class="content">
+      <div class="left_side"><span></span>
+        <ul class="menu">
+          <li class="menu__list" ng-repeat="group in $ctrl.allGroups">
+            <a class="name_group" ng-click="$ctrl.showGroup(this)">{{group.title}}</a>
+            <ul class="named">
+              <li ng-repeat="student in group.students"><a href="{{student.link}}">{{student.lastName}} {{student.firstName}}</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="chat"></div>
+      <div class="right_side">
+        <ul class="menu">
+          <li class="menu__list" ng-repeat="chair in $ctrl.allChairs">
+            <a class="name_group" ng-click="$ctrl.showGroup(this)">{{chair.title}}</a>
+            <ul class="named">
+              <li ng-repeat="teacher in chair.allTeachers"><a href="{{teacher.link}}">{{teacher.FIO}}</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-
-
-    <div class="chat">
-
-    </div>
-
-    <div class="right_side">
-      <ul class="menu">
-        <li class="menu__list">
-          <a class="name_group" href="#">САПР</a>
-          <ul class="named">
-            <li><a href="#">Розалиев Владимир Леонидович</a></li>
-            <li><a href="#">Дмитриев Александр Сергеевич</a></li>
-            <li><a href="#">Щербаков Максим Владимирович</a></li>
-          </ul>
-        </li>
-        <li>
-          <a class="name_group" href="#">ЭВМ</a>
-          <ul class="named">
-            <li><a href="#">Андреев Андрей Евгеньевич</a></li>
-            <li><a href="#">Кирносенко Семён Игоревич</a></li>
-            <li><a href="#">Егунов Виталий Алексеевич</a></li>
-          </ul>
-        </li>
-        <li>
-          <a class="name_group" href="#">ПОАС</a>
-          <ul class="named">
-            <li><a href="#">Литовкин Дмитрий Васильевич</a></li>
-            <li><a href="#">Мамонтов Дмитрий Петрович</a></li>
-            <li><a href="#">Сычёв Олег Алекандрович</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script src="script/main.js"></script>
-</body>
+  </body>
 </html>

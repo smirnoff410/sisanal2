@@ -1,0 +1,38 @@
+[
+	{
+		"lastName": "Алексеев",
+		"firstName": "Илья",
+		"patronymic": "Алексеевич",
+		"link": "#"
+	},
+	{
+		"lastName": "Долганова",
+		"firstName": "Анна",
+		"patronymic": "Сергеевна",
+		"link": "#"
+	},
+	{
+		"lastName": "Истомин",
+		"firstName": "Илья",
+		"patronymic": "Александрович",
+		"link": "#"
+	},
+	{
+		"lastName": "Кудряшова",
+		"firstName": "Ксения",
+		"patronymic": "Алексеевна",
+		"link": "#"
+	},
+	{
+		"lastName": "Смирнов",
+		"firstName": "Владислав",
+		"patronymic": "Александрович",
+		"link": "#"
+	},
+	{
+		"lastName": "Соболев",
+		"firstName": "Вадим",
+		"patronymic": "Олегович",
+		"link": "#"
+	}
+]
