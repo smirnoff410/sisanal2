@@ -7,7 +7,20 @@ var app = express();
 var jsonParser = bodyParser.json();
 var url = "mongodb://localhost:27017/usersdb";
 
-app.use(express.static(__dirname + "/public"));
+//app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname));
+
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
+app.get('/main', function (req, res) {
+  res.sendFile(__dirname + '/public/main.html');
+});
+
+app.get('/login', function (req, res) {
+  res.sendFile(__dirname + '/public/logout.html');
+});
 
 app.post("/api/users", jsonParser, function (req, res) {
 
