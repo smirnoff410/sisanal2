@@ -2,32 +2,30 @@
 }
 
 .list.ng-enter {
-  opacity: 0;
-  transition: .1s linear all;
+  display: none;
+  transition: .05s linear all;
 }
 
 .list.ng-enter.ng-enter-active {
-  opacity: 1;
+  display: block;
 }
 
 .list.ng-leave {
-  opacity: 1;
-  transition: .1s linear all;
+  display: block;
+  transition: .05s linear all;
 }
 
 .list.ng-leave.ng-leave-active {
-  opacity: 0;
+  display: none;
 }
 
 .list.ng-enter-stagger,
 .list.ng-leave-stagger {
-  /* Задержка анимации */
-  -webkit-transition-delay: .1s;
-  transition-delay: .1s;
+  -webkit-transition-delay: .05s;
+  transition-delay: .05s;
  
-  /* Эта часть нужна, чтобы анимация проходила без проблем */
-  -webkit-transition-duration:0;
-  transition-duration:0;
+  -webkit-transition-duration: .01;
+  transition-duration:0.01;
 }
 
 .col-xs-3 a{
@@ -80,6 +78,7 @@ ul{
   padding: 10px;
   display: block;
   border-bottom: 1px solid #666;
+  cursor: pointer;
 }
 
 .menu a:hover{

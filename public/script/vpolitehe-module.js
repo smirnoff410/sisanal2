@@ -21,16 +21,20 @@ vpoliteve.controller('mainController', function($http, $scope, $animate) {
 	});
 
 	$scope.showGroup = (group) => {
+		let flag = group.user.show;
 		for (let i = 0; i < $scope.allGroups.length; ++i) {
 			$scope.allGroups[i].show = false;
 		}
-		group.user.show = true;
+		if (!flag)
+			group.user.show = true;
 	}
 
 	$scope.showChair = (chair) => {
+		let flag = chair.user.show;
 		for (let i = 0; i < $scope.allChairs.length; ++i) {
 			$scope.allChairs[i].show = false;
 		}
-		chair.user.show = true;
+		if (!flag)
+			chair.user.show = true;
 	}
 });
