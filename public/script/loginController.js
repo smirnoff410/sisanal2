@@ -1,9 +1,9 @@
-angular.module('vpoliteve', []);
+angular.module('vpoliteve', ['ngCookies']);
 
 angular.
 	module('vpoliteve').
-	controller('loginController', ['$scope', '$http', '$location', 
-		function($scope, $http, $location) {
+	controller('loginController', ['$scope', '$http', '$location', '$cookies',
+		function($scope, $http, $location, $cookies) {
 			$scope.validateComments1 = (input) => {
 				const email = document.querySelector('input[name="email"]');
 				let myRe = /\w+@([a-z]+).[a-z]{2,4}/i;
@@ -35,8 +35,16 @@ angular.
 			}
 
 			$scope.login = (user) => {
-				$http.post('/api/userss', user).then((response) => {
-					if (response.data.length) {
+				let key = CryptoJS.SHA256(user.email).toString();
+				const userCrypt = {};
+
+				for (let i in user) {
+					userCrypt[i] = CryptoJS.AES.encrypt(user[i], key).toString();
+				}
+				userCrypt.key = key;
+
+				$http.post('/api/userss', userCrypt).then((response) => {
+					if (response.data.status) {
 						document.location.href = '/main';
 					} else {
 						alert("Пользователь с такими данными не зарегистрирован");
