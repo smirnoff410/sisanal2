@@ -41,6 +41,14 @@
 	margin-top: 10px;
 }
 
+.navigation{
+	cursor: pointer;
+}
+
+.navigation:hover{
+	color: #000;
+}
+
 .content{
   display: flex;
   flex-direction: row;
