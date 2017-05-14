@@ -2,8 +2,9 @@ angular.module('vpoliteve', ['ngCookies']);
 
 angular.
 	module('vpoliteve').
-	controller('loginController', ['$scope', '$http', '$location', '$cookies',
-		function($scope, $http, $location, $cookies) {
+	controller('loginController', ['$scope', '$http', '$location', '$cookieStore', '$cookies',
+		function($scope, $http, $location, $cookieStore, $cookies) {
+			$cookies.remove('id');
 			$scope.validateComments1 = (input) => {
 				const email = document.querySelector('input[name="email"]');
 				let myRe = /\w+@([a-z]+).[a-z]{2,4}/i;
@@ -46,6 +47,11 @@ angular.
 				$http.post('/api/userss', userCrypt).then((response) => {
 					if (response.data.status) {
 						document.location.href = '/main';
+
+						let date = new Date();
+						date.setMonth(date.getMonth() + 1);
+						date = date.toUTCString();
+						$cookies.put('id', response.data.id, {'expires':date});
 					} else {
 						alert("Пользователь с такими данными не зарегистрирован");
 					}

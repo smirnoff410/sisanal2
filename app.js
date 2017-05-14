@@ -3,19 +3,34 @@ var bodyParser = require("body-parser");
 var mongoClient = require("mongodb").MongoClient;
 var objectId = require("mongodb").ObjectID;
 const CryptoJS = require('crypto-js');
+const cookieParser = require('cookie-parser');
 var app = express();
 var jsonParser = bodyParser.json();
 var url = "mongodb://localhost:27017/usersdb";
 
 //app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname));
+app.use(cookieParser());
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
 app.get('/main', function (req, res) {
-  res.sendFile(__dirname + '/public/main.html');
+  //console.log(req.cookies);
+  mongoClient.connect(url, (err, db) => {
+    if (err) return res.stats(400).send();
+
+    db.collection('users').find({_id:objectId(req.cookies.id)}).toArray((err, result) => {
+      if (err) return res.stats(400).send();
+
+      if (result.length) {
+        res.sendFile(__dirname + '/public/main.html');
+      } else {
+        res.redirect('/login');
+      }
+    });
+  });
 });
 
 app.get('/login', function (req, res) {
@@ -25,32 +40,6 @@ app.get('/login', function (req, res) {
 app.post("/api/users", jsonParser, function (req, res) {
 
     if(!req.body) return res.sendStatus(400);
-
-    var userName = req.body.name;
-    var userSurname = req.body.surname;
-    var userPatronymic = req.body.patronymic;
-    var userSchool = req.body.school;
-  	var userEmail = req.body.email;
-  	var userGroup = req.body.group;
-  	var userTeacherstudent = req.body.teacherstudent;
-  	var userTeacherkey = req.body.teacherkey;
-  	var userPulpit = req.body.pulpit;
-    var userPassword = req.body.password;
-    var userKey = req.body.key;
-
-    var user = {
-                  name: userName, 
-                  surname: userSurname,
-                  patronymic: userPatronymic,
-                  school: userSchool,
-                  email: userEmail,
-                  group: userGroup,
-                  teacherstudent: userTeacherstudent,
-                  teacherkey: userTeacherkey,
-                  pulpit: userPulpit,
-                  password: userPassword,
-                  key: userKey
-                };
 
     mongoClient.connect(url, function(err, db){
         db.collection("users").find({key:req.body.key}).toArray((err,result)=>{
@@ -75,11 +64,7 @@ app.post("/api/users", jsonParser, function (req, res) {
 app.post("/api/userss", jsonParser, function(req, res){
   if(!req.body) return res.sendStatus(400);
 
-  var userEmail = req.body.email;
-  var userPassword = req.body.password;
-
-  var user = {email: userEmail, password: userPassword};
-  console.log(user);
+  console.log(req.body);
   mongoClient.connect(url, function(err, db){
       db.collection("users").find({key:req.body.key}).toArray(function(err, result){
         if(err) return res.status(400).send();
