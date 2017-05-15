@@ -23,12 +23,14 @@
 .list.ng-leave-stagger {
   -webkit-transition-delay: .05s;
   transition-delay: .05s;
- 
+
   -webkit-transition-duration: .01;
   transition-duration:0.01;
 }
 
-.col-xs-3 a{
+
+
+.col-xs-2 a, .col-xs-3 a{
   text-decoration: none;
   color: #fff;
 }
@@ -95,7 +97,7 @@ ul{
 }
 
 .named a{
-  background: #79a78a;
+  background: #36BBCE;
   color: #fff;
   padding: 5px;
   display: block;
