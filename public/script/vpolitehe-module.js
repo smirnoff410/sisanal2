@@ -40,7 +40,10 @@ vpoliteve.controller('mainController', ['$http', '$scope', '$animate', '$cookies
 		}
 
 		$scope.logOut = () => {
-			$cookies.remove('id');
-			document.location.href = '/login';
+			$http.post('/api/logout').then((response) => {
+				document.location.href = '/login';
+				$cookies.remove('id');
+				$cookies.remove('token');			
+			});
 		}
 }]);

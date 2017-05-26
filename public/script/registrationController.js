@@ -5,6 +5,7 @@ angular.
 	controller('registrationController', ['$scope', '$http', '$location', '$cookies',
 		function ($scope, $http, $location, $cookies) {
 			$cookies.remove('id');
+			$cookies.remove('token');
 			$scope.user = {teacherstudent: "Я студент"};
 			$scope.registration = (user) => {
 				let test = true;
@@ -93,16 +94,8 @@ angular.
 
 	      		delete user.password1;
 
-	      		let key = CryptoJS.SHA256(user.email).toString();
-	      		const userCrypt = {};
-
-	      		for (let i in user) {
-	      			userCrypt[i] = CryptoJS.AES.encrypt(user[i], key).toString();
-	      		}
-	      		userCrypt.key = key;
-
 	      		if (test) {
-		      		$http.post('/api/users', userCrypt).then((response) => {
+		      		$http.post('/api/users', user).then((response) => {
 		      			if(!response.data.status)
 		                    alert("Такой челик уже есть");
 		                else {
@@ -112,6 +105,7 @@ angular.
 							date.setMonth(date.getMonth() + 1);
 							date = date.toUTCString();
 							$cookies.put('id', response.data.id, {'expires':date});
+							$cookies.put('token', response.data.token, {'expires': date});
 		                }
 		      		});
 				}
