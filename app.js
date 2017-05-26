@@ -136,6 +136,6 @@ app.post('/api/logout', (req, res) => {
   res.end();
 });
 
-app.listen(3000, '192.168.1.103', function(){
+app.listen(3000, function(){
     console.log("Server starting at host 3000...");
 });
