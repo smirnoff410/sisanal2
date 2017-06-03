@@ -1,7 +1,5 @@
-const vpoliteve = angular.module('vpoliteve', ['ngAnimate', 'ngCookies']);
-
-vpoliteve.controller('mainController', ['$http', '$scope', '$animate', '$cookies', 
-	function($http, $scope, $animate, $cookies) {
+vpoliteve.controller('mainController', ['$http', '$scope', '$animate', '$cookies', 'dataService',
+	function($http, $scope, $animate, $cookies, dataService) {
 		const self = this;
 		$http.get('groups/groups.json').then((response) => {
 			$scope.allGroups = response.data;
@@ -39,11 +37,18 @@ vpoliteve.controller('mainController', ['$http', '$scope', '$animate', '$cookies
 				chair.user.show = true;
 		}
 
+		$scope.MainPage = () => {
+			let MyProfile = angular.element(document.querySelector(".MyProfile"));
+			MyProfile.remove();
+			let MyNews = angular.element(document.querySelector(".MyNews"));
+			MyNews.remove();
+		}
+
 		$scope.logOut = () => {
 			$http.post('/api/logout').then((response) => {
 				document.location.href = '/login';
 				$cookies.remove('id');
-				$cookies.remove('token');			
+				$cookies.remove('token');
 			});
 		}
 }]);

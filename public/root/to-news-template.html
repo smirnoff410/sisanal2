@@ -1,0 +1,49 @@
+<div class="MyNews">
+  <h3>Здесь происходит публикация ваших(и не только) новостей. Текст отмечен разным цветов в соответствии
+  с важностью мероприятия.</h3>
+  <div class="News1">
+
+  </div>
+  <div class="News">
+
+  </div>
+  <br>
+    <textarea class="newsInput" ng-model="textarea"></textarea>
+    <form>
+      <span class="radioRed"><input type="radio" name="radioButton" ng-model="color" value="red"/> Красный</span>
+      <span class="radioGreen"><input type="radio" name="radioButton" ng-model="color" value="green"/> Зелёный</span>
+      <span class="radioYellow"><input type="radio" name="radioButton" ng-model="color" value="yellow"/> Жёлтый</span>
+    </form>
+    <button ng-click="alert1()">Отправить</button>
+</div>
+<style>
+  .newsInput{
+    width: 100%;
+    height: 150px;
+  }
+  .radioRed {
+    color: red;
+  }
+  .radioGreen{
+    color: green;
+  }
+  .radioYellow {
+    color: yellow;
+  }
+  .red {
+    background: red;
+  }
+  .yellow {
+    background: yellow;
+  }
+  .green {
+    background: green;
+  }
+  .News {
+    font-size: 20px;
+  }
+  .News1 {
+    font-size: 20px;
+    padding-top: 20px;
+  }
+</style>

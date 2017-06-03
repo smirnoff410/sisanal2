@@ -109,8 +109,6 @@ app.post("/api/users", jsonParser, function (req, res) {
                         group: req.body.group
                     }, secret);
 
-                    const id = result.ops[0]._id.toString();
-
                     session.push({id:id, token:token});
 
                     db.collection('tokens').insertOne({token: token,id:id}, (err, resultToken) => {
@@ -134,46 +132,40 @@ app.post("/api/userss", jsonParser, function(req, res){
 
     console.log(req.body);
 
-    mongoClient.connect(url, function(err, db){
-        db.collection("users").find({key:req.body.key}).toArray(function(err, result){
-            console.log(err);
-            if(err) return res.status(400).send();
-            console.log(result);
+    console.log(result);
 
-            let isOk = false;
-            for (let i = 0; i < result.length && !isOk; ++i) {
-                if (CryptoJS.AES.decrypt(result[i].email, result[i].key).toString(CryptoJS.enc.Utf8) === 
-                    req.body.email &&
-                    result[i].password === CryptoJS.SHA256(req.body.password).toString()) {
-           
-                        const date = new Date();
+    let isOk = false;
+    for (let i = 0; i < result.length && !isOk; ++i) {
+        if (CryptoJS.AES.decrypt(result[i].email, result[i].key).toString(CryptoJS.enc.Utf8) === 
+            req.body.email &&
+            result[i].password === CryptoJS.SHA256(req.body.password).toString()) {
+   
+                const date = new Date();
 
-                        const token = jwt.sign({
-                            name: result[0].name,
-                            surname: result[0].surname,
-                            patronymic: result[0].patronymic,
-                            date: date.toUTCString(),
-                            key: result[0].key,
-                            email: result[0].email,
-                            group: result[0].group
-                        }, secret);
+                const token = jwt.sign({
+                    name: result[0].name,
+                    surname: result[0].surname,
+                    patronymic: result[0].patronymic,
+                    date: date.toUTCString(),
+                    key: result[0].key,
+                    email: result[0].email,
+                    group: result[0].group
+                }, secret);
 
-                        session.push({id:result[0]._id.toString(),token:token});
+                session.push({id:result[0]._id.toString(),token:token});
 
-                        isOk = true;
+                isOk = true;
 
-                        db.collection('tokens').insertOne({id:result[0]._id.toString(),token:token}, (err, resultToken) => {
-                            res.send({'status': true, "id": result[i]._id.toString(), 'token': token});
-                            db.close();
-                        });
-                }
-            }
-            if (!isOk) {
-                res.send({'status': false});
-                db.close();
-            }
-        });
-    });
+                db.collection('tokens').insertOne({id:result[0]._id.toString(),token:token}, (err, resultToken) => {
+                    res.send({'status': true, "id": result[i]._id.toString(), 'token': token});
+                    db.close();
+                });
+        }
+        if (!isOk) {
+            res.send({'status': false});
+            db.close();
+        }
+    }
 });
 
 app.post('/api/logout', (req, res) => {
@@ -186,6 +178,51 @@ app.post('/api/logout', (req, res) => {
         db.collection('tokens').remove({id:req.cookies.id,token:req.cookies.token});
     });
     res.end();
+});
+
+app.post('/api/messageNews', jsonParser, (req, res) => {
+  console.log(req.body.message);
+  let message = req.body.message;
+  let check = req.body.check;
+  let userMessage = {message: message, check: check, status: true};
+
+  mongoClient.connect(url, function(err, db){
+      db.collection("messageNews").find(userMessage).toArray((err,result)=>{
+        if(err) return res.stats(400).send();
+        if(result.length != 0)
+           res.send({'status': false});
+        else{
+          db.collection("messageNews").insertOne(userMessage, function(err, result){
+
+              if(err) return res.status(400).send();
+               console.log(result.ops);
+
+              res.send(result.ops);
+              db.close();
+          });
+        }
+      });
+  });
+});
+
+app.get('/api/downloadMessageNews', (req, res) => {
+  mongoClient.connect(url, function(err, db) {
+    db.collection("messageNews").find({status: true}).toArray((err, result) => {
+      if(err) return res.stats(400).send();
+      res.send(result);
+      db.close();
+    });
+  });
+});
+
+app.get('/getUser', (req, res) => {
+  mongoClient.connect(url, (err, db) => {
+    db.collection('users').find({_id: objectId(req.cookies.id)}).toArray((err, result) => {
+      if (err) return res.stats(400).send();
+      res.send(JSON.stringify(result));
+      db.close();
+    });
+  });
 });
 
 app.listen(3000, function(){

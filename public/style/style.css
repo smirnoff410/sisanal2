@@ -1,9 +1,11 @@
 /*////////////////////////////////////////////////////////*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic');
+
 @font-face{
-    font-family: "troika";
-     src: url(../fonts/troika.otf);
-    font-style: normal;
-    font-weight: normal;
+  font-family: "troika";
+  src: url(../fonts/troika.otf);
+  font-style: normal;
+  font-weight: normal;
 }
 .headerText{
     font-size: 2.2em;
@@ -31,17 +33,17 @@
 	width: 100%;
 
 }
-.footerStyle{
-    font-family: troika;
-    font-size: 1em;
-    width: 100%;
-    height: 10%;
-    background: #36BBCE;
+.footerStyle .row{
+  font-family: 'Open Sans';
+  font-size: 1em;
+  width: 100%;
+  height: 10%;
+  background: #36BBCE;
 
 }
 .developers{
-    margin-left: 2%;
-    width: 100%;
+  margin-left: 2%;
+  width: 100%;
 }
 .footerStyle a{
     color: white;

@@ -1,38 +1,38 @@
 [
 	{
-		"lastName": "Алексеев",
+		"lastName": "Архипенко",
+		"firstName": "Виталий",
+		"patronymic": "Олегович",
+		"link": "#"
+	},
+	{
+		"lastName": "Бадаев",
+		"firstName": "Александр",
+		"patronymic": "Энверович",
+		"link": "#"
+	},
+	{
+		"lastName": "Балеев",
 		"firstName": "Илья",
+		"patronymic": "Александрович",
+		"link": "#"
+	},
+	{
+		"lastName": "Буриков",
+		"firstName": "Антон",
 		"patronymic": "Алексеевич",
 		"link": "#"
 	},
 	{
-		"lastName": "Долганова",
-		"firstName": "Анна",
-		"patronymic": "Сергеевна",
+		"lastName": "Волосникова",
+		"firstName": "Инга",
+		"patronymic": "Александровна",
 		"link": "#"
 	},
 	{
-		"lastName": "Истомин",
-		"firstName": "Илья",
-		"patronymic": "Александрович",
-		"link": "#"
-	},
-	{
-		"lastName": "Кудряшова",
-		"firstName": "Ксения",
-		"patronymic": "Алексеевна",
-		"link": "#"
-	},
-	{
-		"lastName": "Смирнов",
+		"lastName": "Гурьев",
 		"firstName": "Владислав",
-		"patronymic": "Александрович",
-		"link": "#"
-	},
-	{
-		"lastName": "Соболев",
-		"firstName": "Вадим",
-		"patronymic": "Олегович",
+		"patronymic": "Витальевич",
 		"link": "#"
 	}
 ]
