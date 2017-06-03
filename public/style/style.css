@@ -1,7 +1,7 @@
 /*////////////////////////////////////////////////////////*/
 @font-face{
     font-family: "troika";
-     src: url(..fonts/troika.otf);
+     src: url(../fonts/troika.otf);
     font-style: normal;
     font-weight: normal;
 }
@@ -274,6 +274,19 @@
         margin-right: 20%;
     }
   
+}
+@media screen and (max-width: 400px)
+{
+    .VPOLITEHE1{ font-size: 0.9em;  }
+    .enterButton {  /*кнопка справа вверху*/
+        margin-top: 20%;
+        margin-right: 0px;
+        font-size: 0.8em;
+     }
+    #a1{
+        font-size: 0.8em;
+        margin-right: 5%;
+    }
 }
 
  
