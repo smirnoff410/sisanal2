@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "angular",
   "version": "1.5.11",
@@ -7,3 +8,14 @@
   "dependencies": {
   }
 }
+=======
+{
+  "name": "angular",
+  "version": "1.5.11",
+  "license": "MIT",
+  "main": "./angular.js",
+  "ignore": [],
+  "dependencies": {
+  }
+}
+>>>>>>> DesignV2.0

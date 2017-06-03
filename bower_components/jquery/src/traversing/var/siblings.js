@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 define( function() {
 
 return function( n, elem ) {
@@ -13,3 +14,20 @@ return function( n, elem ) {
 };
 
 } );
+=======
+define( function() {
+
+return function( n, elem ) {
+	var matched = [];
+
+	for ( ; n; n = n.nextSibling ) {
+		if ( n.nodeType === 1 && n !== elem ) {
+			matched.push( n );
+		}
+	}
+
+	return matched;
+};
+
+} );
+>>>>>>> DesignV2.0

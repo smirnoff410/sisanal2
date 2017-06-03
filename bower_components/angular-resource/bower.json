@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "angular-resource",
   "version": "1.5.11",
@@ -8,3 +9,15 @@
     "angular": "1.5.11"
   }
 }
+=======
+{
+  "name": "angular-resource",
+  "version": "1.5.11",
+  "license": "MIT",
+  "main": "./angular-resource.js",
+  "ignore": [],
+  "dependencies": {
+    "angular": "1.5.11"
+  }
+}
+>>>>>>> DesignV2.0

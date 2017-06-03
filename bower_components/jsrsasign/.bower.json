@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "kjur-jsrsasign",
   "version": "7.2.0",
@@ -19,4 +20,27 @@
   "_source": "https://github.com/kjur/jsrsasign.git",
   "_target": "7.2.0",
   "_originalSource": "jsrsasign"
+=======
+{
+  "name": "kjur-jsrsasign",
+  "version": "7.2.0",
+  "main": "jsrsasign-all-min.js",
+  "description": "The 'jsrsasign' (RSA-Sign JavaScript Library) is an opensource free cryptography library supporting RSA/RSAPSS/ECDSA/DSA signing/validation, ASN.1, PKCS#1/5/8 private/public key, X.509 certificate, CRL, OCSP, CMS SignedData, TimeStamp, CAdES, JWS and JWT in pure JavaScript.",
+  "license": "MIT",
+  "ignore": [
+    ".jshintrc"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "homepage": "https://github.com/kjur/jsrsasign",
+  "_release": "7.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "7.2.0",
+    "commit": "02de49182daf0b527ccc7378caa711a0377b69e3"
+  },
+  "_source": "https://github.com/kjur/jsrsasign.git",
+  "_target": "7.2.0",
+  "_originalSource": "jsrsasign"
+>>>>>>> DesignV2.0
 }

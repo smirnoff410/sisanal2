@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -15,4 +16,23 @@
 
 	return CryptoJS.HmacRIPEMD160;
 
+=======
+;(function (root, factory, undef) {
+	if (typeof exports === "object") {
+		// CommonJS
+		module.exports = exports = factory(require("./core"), require("./ripemd160"), require("./hmac"));
+	}
+	else if (typeof define === "function" && define.amd) {
+		// AMD
+		define(["./core", "./ripemd160", "./hmac"], factory);
+	}
+	else {
+		// Global (browser)
+		factory(root.CryptoJS);
+	}
+}(this, function (CryptoJS) {
+
+	return CryptoJS.HmacRIPEMD160;
+
+>>>>>>> DesignV2.0
 }));
