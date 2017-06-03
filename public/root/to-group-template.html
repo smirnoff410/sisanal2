@@ -1,0 +1,39 @@
+<div class="MyGroup">
+  <h1 align="center">Моя группа: {{group}}</h1>
+  <div class="groupContent">
+    <div class="classmates">
+
+    </div>
+    <img style="margin-right: 20px;height: 300px;" src="/public/img/sessia.jpg"/>
+  </div>
+</div>
+<style>
+  .MyGroup {
+    color: #fff;
+  }
+  .classmates a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    margin-left: 20px;
+  }
+  .classmates a:hover {
+    color: #36BBCE;
+  }
+  .groupContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+    @media screen and (max-width: 400px){
+        .classmates {
+           text-align: center;
+        }
+        .classmates a{ margin: 0px;}
+        .classmates hr{
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        
+    }
+</style>

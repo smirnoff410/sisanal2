@@ -1,0 +1,38 @@
+[
+	{
+		"lastName": "Архипенко",
+		"firstName": "Виталий",
+		"patronymic": "Олегович",
+		"link": "#"
+	},
+	{
+		"lastName": "Бадаев",
+		"firstName": "Александр",
+		"patronymic": "Энверович",
+		"link": "#"
+	},
+	{
+		"lastName": "Балеев",
+		"firstName": "Илья",
+		"patronymic": "Александрович",
+		"link": "#"
+	},
+	{
+		"lastName": "Буриков",
+		"firstName": "Антон",
+		"patronymic": "Алексеевич",
+		"link": "#"
+	},
+	{
+		"lastName": "Волосникова",
+		"firstName": "Инга",
+		"patronymic": "Александровна",
+		"link": "#"
+	},
+	{
+		"lastName": "Гурьев",
+		"firstName": "Владислав",
+		"patronymic": "Витальевич",
+		"link": "#"
+	}
+]

@@ -1,0 +1,14 @@
+[
+	{
+		"title": "САПРиПК",
+		"source": "sapripc.json"
+	},
+	{
+		"title": "ЭВМиС",
+		"source": "ecm.json"
+	},
+	{
+		"title": "ПОАС",
+		"source": "poas.json"
+	}
+]

@@ -1,0 +1,36 @@
+<div align="center" class="About">
+  <h4>Привет! Ты находишься на сайте VUnivere разработанный нашими больными мозгами.</h4>
+    <div class = "about-img"> </div>
+  <h4>Да, на фотографии разработчики. Да про лифчик уже шутили.
+    Да про галстук тоже. Пожалуйста, скажи нам что тебе понравилось,
+    а что нет, отправив нам сообщение на почту. Мы будем очень признательны :)</h4>
+    <textarea class="aboutMessage"></textarea>
+    <button class="aboutButton">Отправить</button>
+</div>
+<style>
+  .About {
+    color: #fff;
+    background: #3d3d3d;
+  }
+  .aboutMessage {
+    width: 98%;
+    height: 100px;
+    color: #000;
+  }
+  .aboutButton {
+    color: #000;
+    margin-bottom: 5px;
+  }
+    
+    .about-img{
+        background: url('/public/img/logo.jpg');
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        height: 550px;
+        margin: 10px;
+    }
+    @media screen and (max-width: 400px){
+        .about-img{ height: 100px;}
+    }
+</style>

@@ -4,3 +4,12 @@ $(function(){
     $(this).next().slideToggle('slow');
   });
 });
+
+
+//$(window).resize(function() {
+//  if($(window).width() <= 400 )
+//      {
+//          alert("ok");
+//          $('.avatar').after('<br>')
+//      }
+//});

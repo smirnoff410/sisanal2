@@ -1,0 +1,38 @@
+[
+	{
+		"lastName": "Авдосев",
+		"firstName": "Станислав",
+		"patronymic": "Александрович",
+		"link": "#"
+	},
+	{
+		"lastName": "Базиянц",
+		"firstName": "Дмитрий",
+		"patronymic": "Сергеевич",
+		"link": "#"
+	},
+	{
+		"lastName": "Бескишкин",
+		"firstName": "Алексей",
+		"patronymic": "Сергеевич",
+		"link": "#"
+	},
+	{
+		"lastName": "Буданов",
+		"firstName": "Алексей",
+		"patronymic": "Сергеевич",
+		"link": "#"
+	},
+	{
+		"lastName": "Выборнов",
+		"firstName": "Илья",
+		"patronymic": "Сергеевич",
+		"link": "#"
+	},
+	{
+		"lastName": "Гунин",
+		"firstName": "Дмитрий",
+		"patronymic": "Владимирович",
+		"link": "#"
+	}
+]

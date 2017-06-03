@@ -1,13 +1,128 @@
-.row{
-	background: #79a78a;
-	margin-left: 0;
-	margin-right: 0;
-	width: 100%;
+/*////////////////////////////////////////////////////////*/
+@font-face{
+    font-family: "troika";
+     src: url(../fonts/troika.otf);
+    font-style: normal;
+    font-weight: normal;
+}
+.headerText{
+    font-size: 2.2em;
+    height: 100%;
+    width: 70%;
+    margin: auto;
+    margin-top: 1%;
+}
+.enterButton{
+     vertical-align: middle;
+    margin-top: 2%;
+    width: 10%;
+    font-size: 1.6em;
+    position: relative;
+	float: right;
 }
 
+.row{
+  font-family: troika;
+	background: #36BBCE;
+  text-align: center;
+	margin-left: 0;
+	margin-right: 0;
+  height: 120px;
+	width: 100%;
+
+}
+.footerStyle{
+    font-family: troika;
+    font-size: 1em;
+    width: 100%;
+    height: 10%;
+    background: #36BBCE;
+
+}
+.developers{
+    margin-left: 2%;
+    width: 100%;
+}
+.footerStyle a{
+    color: white;
+    transition: 0.8s;
+    margin-left: 5px;
+    font-size: 1.2em;
+}
+.footerStyle a:hover{
+    color: black;
+    transition: 0.5s;
+}
+.rights{
+    text-align: left;
+    width: 20%;
+    float: right;
+}
+
+
+
+
+.continent{
+	background: #fff;
+	width: 100%;
+	margin-left: 10%;
+	margin-right: 50px;
+	margin-bottom: 15px;
+}
+
+.continent ul,
+.continent li{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+
+}
+
+.continent li{
+
+	display: inline-block;
+	width: 400px;
+	margin: 0;
+    margin-left: 7%;
+    margin-top: 2%;
+	position: relative;
+	overflow: hidden;
+}
+
+.continent img{
+	width: 100%;
+    height: 250px;
+	display: block;
+
+}
+
+.continent li:hover .descr{
+	opacity: 1;
+	bottom: 0;
+}
+
+.descr{
+    font-family: troika;
+	position: absolute;
+	bottom: 100%;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	padding-top: 20px;
+	text-align: center;
+    vertical-align: middle;
+	opacity: 0;
+	transition: all .5s;
+    font-size: 1.4em;
+}
+
+/*////////////////////////////////////////////////////////*/
+
+
 .image{
-	margin-left: 15px;
-	margin-top: 5px;
+	margin-left: 10%;
+  margin-top: 10%;
 }
 
 .white{
@@ -39,58 +154,13 @@
 	width: 280px;
 }
 
+
+
 #content{
 	display: flex;
 	flex-direction: colomn;
 }
 
-.continent{
-	background: #fff;
-	width: 100%;
-	margin-left: 50px;
-	margin-right: 50px;
-	margin-bottom: 15px;
-}
-
-.continent ul,
-.continent li{
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-
-}
-
-.continent li{
-	display: inline-block;
-	width: 400px;
-	margin: 0;
-	position: relative;
-	overflow: hidden;
-}
-
-.continent img{
-	max-width: 100%;
-	display: block;
-}
-
-.descr{
-	position: absolute;
-	top: 100%;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.4);
-	color: #fff;
-	padding-top: 20px;
-	text-align: center;
-	opacity: 0;
-	transition: all .5s;
-}
-
-.continent li:hover .descr{
-	opacity: 1;
-	top: 0;
-}
 
 
 
@@ -113,27 +183,113 @@
 }
 
 
-@media screen and (max-width: 1000px){
-	.image{
-		margin-top: 19px;
-		margin-left: 0;
-	}
-}
 
-@media screen and (max-width: 800px) {
-	.VPOLITEHE2{
-		display: none;
-	}
-	.VPOLITEHE1{
-		margin-left: 80px;
-	}
-	.image{
-		margin-top: 5px;
-	}
+
+
+
+
+/*/////////////////////////////////////////////////////*/
+ @media all and (max-width: 1439px)
+ {
+     .continent li {
+    width: 275px;
+        margin-left: 8%;
+    }
+     
 }
+ @media all and (max-width: 1225px)
+{
+    .continent img {
+     width: 70%;
+    height: 170px;
+    display: block;
+    margin-left: 17%;
+
+    }
+    .descr h1{  font-size: 1.5em;  margin: 0px;  }
+    .descr h3{  font-size: 1.1em;   margin: 0px; }
+    .continent li {  width: 275px; margin-left: 8%; }
+    .enterButton {  /*кнопка справа вверху*/
+    margin-top: 14%;
+        margin-right: 3%;
+        margin-top: 2%;
+     }
+    .col-xs-9{ padding: 0px;    margin:auto;     width: 73%;}
+    #registerButton{
+        padding: 0px;
+        float: right;
+        margin-top: 2%;
+        margin-right: 2%;
+    }
+}
+@media all and (max-width: 1133px){
+    .continent li { width: 275px;  margin-left: 21%; }
+}
+@media screen and (max-width: 1000px){
+	.image{	margin-top: 19px;	margin-left: 0;}
+}
+@media screen and (max-width: 800px) {
+	.VPOLITEHE2{	display: none;}
+	.VPOLITEHE1{	margin-left: 80px;}
+	.image     {	margin-top: 5px;}
+}
+@media all and (max-width: 717px) { .continent li { width: 275px;  margin-left: 10%; } }
+
 
 @media screen and (max-width: 700px){
-	.continent{
-		display: none;
-	}
+	.continent {	display: none; }
+    .VPOLITEHE1{  margin-left: 42%;  text-align: center;}
+    .headerText{
+        width: 50%;
+    }
+    .enterButton {  /*кнопка справа вверху*/
+        margin-top: 5%;
+        padding: 0px;
+        margin-right: 5%;
+     }
+    .enter          {   margin-right: 15%;}
+    .image          {   width:100px;     }
+    #registerButton {   margin-right: 13%; }
+    #userForms      {   margin: auto;     }
+    #LogIn          {   margin-left: 28%; width: 50%; }
+    .register{
+        margin: 0px;
+        width: 100%;
+        text-align: center;
+    }
 }
+@media screen and (max-width: 433px){
+    .VPOLITEHE1{ font-size: 1em;  }
+    .enterButton {  /*кнопка справа вверху*/
+        margin-top: 20%;
+        margin-right: 10%;
+     }
+   
+    #userForms{ margin:auto; }
+    .panel-body button{  margin-left: 20%; }
+   
+    #registerButton{
+        float: right;
+        margin-top: 10%;
+        margin-right: 20%;
+    }
+  
+}
+@media screen and (max-width: 400px)
+{
+    .VPOLITEHE1{ font-size: 0.9em;  }
+    .enterButton {  /*кнопка справа вверху*/
+        margin-top: 20%;
+        margin-right: 0px;
+        font-size: 0.8em;
+     }
+    #a1{
+        font-size: 0.8em;
+        margin-right: 5%;
+    }
+}
+
+ 
+
+/*////////////////////////////////////////////////////////*/
+
